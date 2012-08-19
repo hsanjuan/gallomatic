@@ -1,0 +1,107 @@
+-##############################################################################
+-#     Copyright © 2012 Hector Sanjuan                                        #
+-#                                                                            #
+-#     This file is part of Gall-o-Matic.                                     #
+-#                                                                            #
+-#     Gall-o-Matic is free software: you can redistribute it and/or modify   #
+-#     it under the terms of the GNU General Public License as published by   #
+-#     the Free Software Foundation, either version 3 of the License, or      #
+-#     (at your option) any later version.                                    #
+-#                                                                            #
+-#     Gall-o-Matic is distributed in the hope that it will be useful,        #
+-#     but WITHOUT ANY WARRANTY; without even the implied warranty of         #
+-#     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the          #
+-#     GNU General Public License for more details.                           #
+-#                                                                            #
+-#     You should have received a copy of the GNU General Public License      #
+-#     along with Gall-o-Matic.  If not, see <http://www.gnu.org/licenses/>.  #
+-#                                                                            #
+-##############################################################################
+
+%table#frontpage.full_width
+  %tr
+    %td
+      %h1= @cfg[:title]
+      %h2= @cfg[:subtitle]
+      %h3= 'By ' + @cfg[:author]
+  %tr
+    %td.icon
+      %p
+        %a.start{ :href => "#"}
+          %i.icon-play-circle.icon-large
+
+%table#view.full_width
+  %tr
+    %td#center
+      #license
+        - if @cfg[:cc_license]
+          %a{:href => "http://creativecommons.org/licenses/#{@cfg[:cc_license]}/3.0",
+             :target => '_blank'}
+            %img{:src => File.join('images','cc',@cfg[:cc_license]+'.png'),
+               :alt => 'license',
+               :width => '88',
+               :height => '31'}
+      #images_container
+        - @images.each_with_index do |img,i|
+          %table.image_table{:id => img[:id]}
+            %tr
+              %td
+                %table
+                  %tr
+                    %td.control_bw
+                      %a.backward{ :href => "#" }
+                        %i.icon-circle-arrow-left
+                    %td.image
+                      .img_box
+                        %img{"data-original" => img[:path],
+                             :src => 'images/ajax-loader.gif',
+                             :alt => img[:description]}
+                    %td.control_fw
+                      %a.forward{ :href => "#" }
+                        %i.icon-circle-arrow-right
+            %tr
+              %td
+                %table.full_width
+                  %tr
+                    %td.image_info.full_width
+                      %table.full_width
+                        %tr
+                          %td.image_label
+                            Description:
+                          %td
+                            = img[:description]
+                          %td.page_count
+                            = "#{i+1}&nbsp;/&nbsp;#{@images.size}"
+                        %tr
+                          %td.image_label
+                          %td
+                          %td
+                    %td.image_actions
+                      %table
+                        %tr
+                          %td.action
+                            %a.home{:href => '#',
+                                    :title => "Go to frontpage"}
+                              %i.icon-home
+                          %td.action
+                            %a.full_size{:target => '_blank',
+                                         :href => img[:path],
+                                         :title => "See full size image" }
+                              %i.icon-external-link
+                          %td.action
+                            %a.email{:target => '_blank',
+                                     :href => URI.encode("mailto:?subject=#{@cfg[:title]} photo gallery&body=#{img[:description]}. Picture link: #{@cfg[:url]}/##{img[:id]}"),
+                                     :title => "Email this picture" }
+                              %i.icon-envelope
+                          %td.action
+                            %a.tweet{:target => '_blank',
+                                     :href => URI.encode("https://twitter.com/share?url=#{@cfg[:url]}/##{img[:id]}&text=#{img[:description][0..100]}"),
+                                     :title => "Tweet this picture" }
+                              %i.icon-twitter
+                          %td.action
+                            %a.about{:target => '_blank',
+                                     :href => 'https://github.com/hsanjuan/gallomatic',
+                                     :title => "This gallery is powered by Gall-O-matic" }
+                              %i.icon-question-sign
+                        %tr
+                          %td.help_text{:colspan => 5}

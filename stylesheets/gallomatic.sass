@@ -1,0 +1,137 @@
+///////////////////////////////////////////////////////////////////////////////
+//    Copyright © 2012 Hector Sanjuan                                         /
+//                                                                            /
+//    This file is part of Gall-o-Matic.                                      /
+//                                                                            /
+//    Gall-o-Matic is free software: you can redistribute it and/or modify    /
+//    it under the terms of the GNU General Public License as published by    /
+//    the Free Software Foundation, either version 3 of the License, or       /
+//    (at your option) any later version.                                     /
+//                                                                            /
+//    Gall-o-Matic is distributed in the hope that it will be useful,         /
+//    but WITHOUT ANY WARRANTY; without even the implied warranty of          /
+//    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the           /
+//    GNU General Public License for more details.                            /
+//                                                                            /
+//    You should have received a copy of the GNU General Public License       /
+//    along with Gall-o-Matic.  If not, see <http://www.gnu.org/licenses/>.   /
+//                                                                            /
+///////////////////////////////////////////////////////////////////////////////
+
+
+$fg_color: white
+$bg_color: black
+
+html
+  height: 100%
+
+body
+  background-color: $bg_color
+  height: 90%
+  font-family: 'Droid Serif', serif
+
+a
+  text-decoration: none
+  color: $fg_color
+  outline: none
+
+.full_width
+  width: 100%
+
+table#view
+  margin:
+    right: auto
+    left: auto
+  padding:
+    top: 10px
+  height: 100%
+  text-align: center
+  #license
+    position: fixed
+    top: 10px
+    right: 10px
+    opacity: 0.5
+    &:hover
+      opacity: 1
+
+table#frontpage
+  //display: none
+  color: $fg_color
+  text-align: center
+  vertical-align: middle
+  height: 100%
+  margin: 0 auto
+  h1
+    font-size: 70px
+  h2
+    font-size: 40px
+  .icon
+    height: 40%
+  a
+    margin-top: 20px
+    font-size: 60px
+    &:hover
+      font-size: 70px
+
+#images_container
+  .image_table
+    display: none
+    .image
+      padding-bottom: 10px
+      .img_box
+        display: table-cell
+        vertical-align: middle
+        img
+          max-width: 100%
+          max-height: 100%
+    .control_fw,.control_bw
+      min-width: 70px
+      a
+        font-size: 50px
+        &:hover
+          font-size: 60px
+    .image_info
+      border-top: 2px solid $fg_color
+      color: $fg_color
+      text-align: left
+      font-size: 16px
+      height: 100px
+      table
+        height: 100%
+        padding-left: 70px
+        padding:
+          top: 10px
+          bottom: 10px
+        td
+          vertical-align: top
+      .image_label
+        text-align: left
+        font-weight: bold
+        width: 150px
+        padding-right: 25px
+      .page_count
+        width: 50px
+        text-align: right
+        font-size: 20px
+        font-weight: bold
+        padding-right: 10px
+    .image_actions
+      border-top: 2px solid $fg_color
+      min-width: 300px
+      border:
+        left: 2px solid $fg_color
+      td.action
+        min-width: 60px
+        height: 100%
+        a
+          font-size: 40px
+          margin-left: 3px
+          margin-right: 3px
+          &:hover
+            font-size: 50px
+      .help_text
+        color: $fg_color
+        font-size: 12px
+        min-height: 18px
+        height: 18px
+        overflow: hidden
