@@ -16,6 +16,11 @@ Gall-O-matic will automaticly generate the necessary single-page HTML for your i
 
 Image description (and other information) is acquired looking at EXIF data.
 
+Online demo
+===========
+
+Visit http://gallomatic.herokuapp.com
+
 License
 =======
 
