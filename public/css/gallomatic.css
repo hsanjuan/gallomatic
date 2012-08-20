@@ -1,5 +1,6 @@
 html {
-  height: 100%; }
+  height: 100%;
+  font-size: 62.5%; }
 
 body {
   background-color: black;
@@ -35,16 +36,21 @@ table#frontpage {
   height: 100%;
   margin: 0 auto; }
   table#frontpage h1 {
-    font-size: 70px; }
+    font-size: 10rem;
+    margin-bottom: 10px; }
   table#frontpage h2 {
-    font-size: 40px; }
+    font-size: 4rem; }
+  table#frontpage h3 {
+    font-size: 1.8rem;
+    font-style: italic;
+    margin-bottom: 60px; }
   table#frontpage .icon {
     height: 40%; }
   table#frontpage a {
     margin-top: 20px;
-    font-size: 60px; }
+    font-size: 6rem; }
     table#frontpage a:hover {
-      font-size: 70px; }
+      font-size: 7rem; }
 
 #images_container .image_table {
   display: none; }
@@ -59,14 +65,14 @@ table#frontpage {
   #images_container .image_table .control_fw, #images_container .image_table .control_bw {
     min-width: 70px; }
     #images_container .image_table .control_fw a, #images_container .image_table .control_bw a {
-      font-size: 50px; }
+      font-size: 5rem; }
       #images_container .image_table .control_fw a:hover, #images_container .image_table .control_bw a:hover {
-        font-size: 60px; }
+        font-size: 6rem; }
   #images_container .image_table .image_info {
     border-top: 2px solid white;
     color: white;
     text-align: left;
-    font-size: 16px;
+    font-size: 1.6rem;
     height: 100px; }
     #images_container .image_table .image_info table {
       height: 100%;
@@ -83,7 +89,7 @@ table#frontpage {
     #images_container .image_table .image_info .page_count {
       width: 50px;
       text-align: right;
-      font-size: 20px;
+      font-size: 2rem;
       font-weight: bold;
       padding-right: 10px; }
   #images_container .image_table .image_actions {
@@ -94,14 +100,14 @@ table#frontpage {
       min-width: 60px;
       height: 100%; }
       #images_container .image_table .image_actions td.action a {
-        font-size: 40px;
+        font-size: 4rem;
         margin-left: 3px;
         margin-right: 3px; }
         #images_container .image_table .image_actions td.action a:hover {
-          font-size: 50px; }
+          font-size: 5rem; }
     #images_container .image_table .image_actions .help_text {
       color: white;
-      font-size: 12px;
+      font-size: 1.2rem;
       min-height: 18px;
       height: 18px;
       overflow: hidden; }
