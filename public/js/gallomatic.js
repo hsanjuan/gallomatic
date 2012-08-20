@@ -38,6 +38,8 @@ function Gallomatic(){
         return true
     }
 
+    this.hashChanged = false
+
     this.showCurrentHash = function(){
         var hash = window.location.hash
         if (!hash) {
@@ -48,24 +50,30 @@ function Gallomatic(){
         var img_cont = $('.image_table'+hash)
         if (img_cont.length){
             var index = img_cont.index()
-            this.showIndex(index)
+            this.showIndex(index, false)
         } else this.showFrontpage()
     }
 
     this.showFrontpage = function(){
-        window.location.hash = ''
+        if (window.location.hash){
+            window.location.hash = ''
+            this.hashChanged = true
+        }
         $('.image_table:visible').hide()
         $('#view').hide()
         $('#frontpage').show()
     }
 
-    this.showIndex = function(index){
+    this.showIndex = function(index, setHash){
         var images = $('#images_container').children()
         var total = images.length
         var img_cont = images[index]
         if (img_cont) {
             showImage(img_cont)
-            window.location.hash = '#'+ $(img_cont).attr('id')
+            if (setHash){
+                window.location.hash = '#'+ $(img_cont).attr('id')
+                this.hashChanged = true
+            }
             if (index == 0)
                 $('.control_bw').css('visibility','hidden')
             else if (index > 0)
@@ -79,19 +87,19 @@ function Gallomatic(){
     }
 
     this.showFirst = function(){
-        this.showIndex(0)
+        this.showIndex(0, true)
     }
 
     this.showNext = function(){
         var img_cont = $('.image_table:visible')
         var index = img_cont.index()
-        this.showIndex(index + 1)
+        this.showIndex(index + 1, true)
     }
 
     this.showPrev = function(){
         var img_cont = $('.image_table:visible')
         var index = img_cont.index()
-        this.showIndex(index - 1)
+        this.showIndex(index - 1, true)
     }
 }
 
@@ -107,6 +115,12 @@ $(document).ready(function(){
 
     // If no hash present, it will show the frontpage
     gallomatic.showCurrentHash()
+
+    $(window).bind('hashchange', function(e){
+        if (!gallomatic.hashChanged)
+            gallomatic.showCurrentHash()
+        else gallomatic.hashChanged = false
+    })
 
     $('a.home').click(function(){
         gallomatic.showFrontpage()

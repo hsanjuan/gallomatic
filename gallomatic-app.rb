@@ -43,7 +43,7 @@ class Gallomatic < Sinatra::Base
         end
 
         images = Dir[File.join(File.dirname(__FILE__),
-                               'public','gallery','*.jpg')]
+                               'public','gallery','*.jpg')].sort
         images = images.collect do |img|
             exif = EXIFR::JPEG.new(img)
             id = 'pic_' + File.basename(img).gsub(/[^a-zA-Z0-9]/, '_').downcase
