@@ -142,6 +142,17 @@ $(document).ready(function(){
         return false
     })
 
+    $(document).keydown(function(e){
+        switch (e.keyCode){
+        case 37: //left
+            gallomatic.showPrev()
+            break
+        case 39:
+            gallomatic.showNext()
+            break
+        }
+    })
+
     $('td.action a').hover(
         function(e){
             var help = $(this).attr('title')
