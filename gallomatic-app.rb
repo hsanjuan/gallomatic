@@ -48,7 +48,7 @@ class Gallomatic < Sinatra::Base
             exif = EXIFR::JPEG.new(img)
             id = 'pic_' + File.basename(img).gsub(/[^a-zA-Z0-9]/, '_').downcase
             {
-                :path => URI.encode(File.join('gallery', File.basename(img))),
+                :path => URI.escape(File.join('gallery', File.basename(img))),
                 :description => exif.image_description || "",
                 :copyright => exif.copyright || "",
                 :id => id
