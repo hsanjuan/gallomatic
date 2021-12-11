@@ -26,7 +26,7 @@ require 'rubygems'
 require 'sinatra/base'
 require 'haml'
 require 'yaml'
-require 'exifr'
+require 'exifr/jpeg'
 require 'json'
 require 'uri'
 
