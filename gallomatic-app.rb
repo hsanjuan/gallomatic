@@ -44,11 +44,12 @@ class Gallomatic < Sinatra::Base
 
         images = Dir[File.join(File.dirname(__FILE__),
                                'public','gallery','*.jpg')].sort
+        p = URI::Parser.new
         images = images.collect do |img|
             exif = EXIFR::JPEG.new(img)
             id = 'pic_' + File.basename(img).gsub(/[^a-zA-Z0-9]/, '_').downcase
             {
-                :path => URI.escape(File.join('gallery', File.basename(img))),
+                :path => p.espape(File.join('gallery', File.basename(img))),
                 :description => exif.image_description || "",
                 :copyright => exif.copyright || "",
                 :id => id
